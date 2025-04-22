@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\User;
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -10,7 +11,9 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::latest()->with('department')->paginate(5);
+        $users = User::with('department')->withCount('tasks')->paginate(5);
+
+
         return view('users.index', [
             'users' => $users
         ]);
@@ -19,10 +22,12 @@ class UserController extends Controller
 
     public function create()
     {
-
+        $departments = Department::all();
         $users = User::all();
         return view('users.create', [
-            'users' => $users
+            'users' => $users,
+            'departments' => $departments
+
         ]);
     }
 
@@ -35,6 +40,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        $user->load('tasks');
         return view('users.show', [
             'user' => $user
         ]);
@@ -42,9 +48,10 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('users.edit', [
-            'user' => $user
-        ]);
+        $departments = Department::all();
+        return view('users.edit', compact('user', 'departments'));
+
+
     }
 
     public function update(Request $request, User $user)

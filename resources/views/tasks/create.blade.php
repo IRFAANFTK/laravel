@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="float-start">
-                        Add New Product
+                        Add New Task
                     </div>
                     <div class="float-end">
                         <a href="{{ route('tasks.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
@@ -68,7 +68,7 @@
                             <label for="assignee"
                                    class="col-md-4 col-form-label text-md-end text-start">Assignee</label>
                             <div class="col-md-6">
-                                <select id="assignee" name="assignee">
+                                <select id="user_id" name="user_id">
                                   @foreach($users as $user)
                                       <option value= "{{ $user->id }}">{{$user->name}}</option>
                                   @endforeach

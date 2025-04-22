@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('description');
             $table->date('started_at')->nullable();
             $table->date('ended_at')->nullable();
-            $table->string('assignee');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

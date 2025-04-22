@@ -19,7 +19,7 @@
                     <div class="row">
                         <label for="name" class="col-md-4 col-form-label text-md-end text-start"><strong>Name:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $tasks->name }}
+                            {{ $task->name }}
                         </div>
                     </div>
 
@@ -27,7 +27,7 @@
                         <label for="description"
                                class="col-md-4 col-form-label text-md-end text-start"><strong>Description:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $tasks->description }}
+                            {{ $task->description }}
                         </div>
                     </div>
 
@@ -35,7 +35,7 @@
                         <label for="assignee"
                                class="col-md-4 col-form-label text-md-end text-start"><strong>Assignee:</strong></label>
                         <div class="col-md-6" style="line-height: 35px;">
-                            {{ $tasks->assignee }}
+                            {{ $task      ->assignee }}
                         </div>
                     </div>
 

@@ -14,7 +14,7 @@ class Task extends Model
         'name',
         'started_at',
         'ended_at',
-        'assignee',
+        'user_id',
         'description'
     ];
 

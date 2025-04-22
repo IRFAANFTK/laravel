@@ -17,11 +17,11 @@
                         Edit User
                     </div>
                     <div class="float-end">
-                        <a href="{{ route('departments.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
+                        <a href="{{ route('users.index') }}" class="btn btn-primary btn-sm">&larr; Back</a>
                     </div>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('departments.update', $department->id) }}" method="POST">
+                    <form action="{{ route('users.update', $user->id) }}" method="POST">
                         @csrf
                         @method("PUT")
 
@@ -29,7 +29,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-end text-start">Name</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                                       name="name" value="{{ $task->name }}">
+                                       name="name" value="{{ $user->name }}">
                                 @if ($errors->has('name'))
                                     <span class="text-danger">{{ $errors->first('name') }}</span>
                                 @endif
@@ -39,11 +39,11 @@
                         <div class="mb-3 row">
                             <label for="department" class="col-md-4 col-form-label text-md-end text-start">Department</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control @error('department') is-invalid @enderror" id="department"
-                                       name="name" value="{{ $task->name }}">
-                                @if ($errors->has('department'))
-                                    <span class="text-danger">{{ $errors->first('department') }}</span>
-                                @endif
+                                <select id="department_id" name="department_id">
+                                    @foreach($departments as $department)
+                                        <option value= "{{ $department->id }}">{{$department->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 

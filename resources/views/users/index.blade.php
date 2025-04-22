@@ -22,6 +22,8 @@
                             <th scope="col">S#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Department</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">No. of Tasks</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -30,7 +32,8 @@
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->department->name}}</td>
-
+                                <td>{{ $user->email}}</td>
+                                <td>{{ $user->tasks_count}}</td>
                                 <td>
                                     <form action="{{ route('users.destroy', $user->id) }}" method="post">
                                         @csrf

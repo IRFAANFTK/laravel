@@ -31,13 +31,14 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label for="department" class="col-md-4 col-form-label text-md-end text-start">Department</label>
+                            <label for="department"
+                                   class="col-md-4 col-form-label text-md-end text-start">Department</label>
                             <div class="col-md-6">
-                                <input type="text" class="form-control @error('departmnent') is-invalid @enderror" id="department"
-                                       name="department" value="{{ old('department') }}">
-                                @if ($errors->has('department'))
-                                    <span class="text-danger">{{ $errors->first('department') }}</span>
-                                @endif
+                                <select id="department" name="department">
+                                    @foreach($departments as $department)
+                                        <option value= "{{ $department->id }}">{{$department->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 

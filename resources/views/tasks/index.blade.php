@@ -12,7 +12,7 @@
             @endif
 
             <div class="card">
-                <div class="card-header">Product List</div>
+                <div class="card-header">Tasks List</div>
                 <div class="card-body">
                     <a href="{{ route('tasks.create') }}" class="btn btn-success btn-sm my-2"><i
                             class="bi bi-plus-circle"></i> Add New Task</a>
