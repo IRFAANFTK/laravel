@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -13,7 +14,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::latest()->with('user')->paginate(2);
+        $tasks = Task::latest()->with('user')->where('user_id', Auth::user()->id)->paginate(5);
         return view('tasks.index', [
             'tasks' => $tasks
         ]);
