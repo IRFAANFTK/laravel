@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts')
 
 @section('content')
 
@@ -49,14 +49,14 @@
                         </div>
 
                         <div class="mb-3 row">
-                            <label for="assignee" class="col-md-4 col-form-label text-md-end text-start">Assignee</label>
+                            <label for="assignee"
+                                   class="col-md-4 col-form-label text-md-end text-start">Assignee</label>
                             <div class="col-md-6">
-                                <input type="text" step="0.01"
-                                       class="form-control @error('assignee') is-invalid @enderror" id="assignee" name="assignee"
-                                       value="{{ $task->assignee }}">
-                                @if ($errors->has('assignee'))
-                                    <span class="text-danger">{{ $errors->first('assignee') }}</span>
-                                @endif
+                                <select id="user_id" name="user_id">
+                                    @foreach($users as $user)
+                                        <option value= "{{ $user->id }}">{{$user->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 

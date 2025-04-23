@@ -23,7 +23,7 @@ class UserController extends Controller
     public function create()
     {
         $departments = Department::all();
-        $users = User::all();
+
         return view('users.create', [
             'users' => $users,
             'departments' => $departments
